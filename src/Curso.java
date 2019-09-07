@@ -7,8 +7,14 @@ public class Curso {
     private ProfesorTitular profesorTitular;
     private ProfesorAdjunto profesorAdjunto;
     private Integer cupoMaximoDeAlumnos;
-    private List<Alumno> listaDeAlumnos;
+    private List<Alumno> listaDeAlumnosInscriptos;
 
+    // Método Constructor.
+    public Curso  (String nombreDelCurso,Integer codigoDelCurso,Integer cupoMaximoDeAlumnos){
+        this.nombreDelCurso = nombreDelCurso;
+        this.codigoDelCurso = codigoDelCurso;
+        this.cupoMaximoDeAlumnos = cupoMaximoDeAlumnos;
+    }
 
     // Métodos Getter.
     public String getNombreDelCurso() {
@@ -25,8 +31,8 @@ public class Curso {
     public Integer getCupoMaximoDeAlumnos(){
         return cupoMaximoDeAlumnos;
     }
-    public List<Alumno> getListaDeAlumnos() {
-        return listaDeAlumnos;
+    public List<Alumno> getListaDeAlumnosInscriptos() {
+        return listaDeAlumnosInscriptos;
     }
 
     // Métodos Setters.
@@ -43,6 +49,20 @@ public class Curso {
     }
 
     //Un curso es igual a otro si sus códigos de curso son iguales.
+
+
+    // Crear un método que permita agregar un Alumno a la Lista.
+    public Boolean agregarUnAlumno(Alumno unAlumno){
+       if(listaDeAlumnosInscriptos.size() >= cupoMaximoDeAlumnos){
+           listaDeAlumnosInscriptos.add(unAlumno);
+        return true;}
+       else {return false;}
+    }
+
+    // Crear un método en la clase Curso que permita eliminar un alumno de la lista de alumnos del curso.
+    public void eliminarAlumno(Alumno unAlumno){
+        listaDeAlumnosInscriptos.remove(unAlumno);
+    }
 
 
 

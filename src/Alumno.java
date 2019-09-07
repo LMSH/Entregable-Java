@@ -10,5 +10,23 @@ public class Alumno {
         this.codigodealumno = codigodealumno;
     }
 
+    // Métodos Getter.
+    public String getNombre(){
+        return nombre; }
+    public String getApellido() {return apellido;}
+    public Integer getCodigodealumno() {return codigodealumno;}
+
+    // Método Setter.
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public void setCodigodealumno(Integer codigodealumno) {
+        this.codigodealumno = codigodealumno;
+    }
+
+
 
 }
