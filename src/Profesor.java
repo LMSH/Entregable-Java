@@ -2,7 +2,16 @@ public class Profesor {
 
     private String nombreDelProfesor;
     private String apellidoDelProfesor;
+    private Integer antiguedad;
     private Integer codigoDeProfesor;
+
+    //Método Constructor.
+    public Profesor(String nombreDelProfesor, String apellidoDelProfesor, Integer antiguedad, Integer codigoDeProfesor) {
+        this.nombreDelProfesor = nombreDelProfesor;
+        this.apellidoDelProfesor = apellidoDelProfesor;
+        this.antiguedad = antiguedad;
+        this.codigoDeProfesor = codigoDeProfesor;
+    }
 
     //Métodos Getter.
     public String getNombreDelProfesor() {
@@ -11,9 +20,11 @@ public class Profesor {
     public String getApellidoDelProfesor() {
         return apellidoDelProfesor;
     }
+    public Integer getAntiguedad(){return antiguedad;}
     public Integer getCodigoDeProfesor(){
         return codigoDeProfesor;
     }
+
 
     // Métodos Setter
     public String setNombreDelProfesor(){
@@ -21,6 +32,9 @@ public class Profesor {
     }
     public String setApellidoDelProfesor () {
         return apellidoDelProfesor;
+    }
+    public Integer setAntiguedad() {
+        return antiguedad;
     }
     public Integer setCodigoDeProfesor (){
         return codigoDeProfesor;
