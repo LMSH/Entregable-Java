@@ -10,7 +10,6 @@ public class Curso {
     private List<Alumno> listaDeAlumnos;
 
 
-
     // Métodos Getter.
     public String getNombreDelCurso() {
         return nombreDelCurso;
