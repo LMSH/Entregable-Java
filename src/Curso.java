@@ -1,5 +1,8 @@
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 public class Curso {
     private String nombreDelCurso;
@@ -7,7 +10,7 @@ public class Curso {
     private ProfesorTitular profesorTitular;
     private ProfesorAdjunto profesorAdjunto;
     private Integer cupoMaximoDeAlumnos;
-    private List<Alumno> listaDeAlumnosInscriptos;
+    private List<Alumno> listaDeAlumnosInscriptos = new ArrayList<>();
 
     // Método Constructor.
     public Curso  (String nombreDelCurso,Integer codigoDelCurso,Integer cupoMaximoDeAlumnos){
@@ -52,19 +55,26 @@ public class Curso {
 
 
     // Crear un método que permita agregar un Alumno a la Lista.
-    public Boolean agregarUnAlumno(Alumno unAlumno){
+    public Boolean agregarUnAlumno(Alumno unAlumno) {
        if(listaDeAlumnosInscriptos.size() >= cupoMaximoDeAlumnos){
-           listaDeAlumnosInscriptos.add(unAlumno);
         return true;}
        else {return false;}
+
     }
+
 
     // Crear un método en la clase Curso que permita eliminar un alumno de la lista de alumnos del curso.
     public void eliminarAlumno(Alumno unAlumno){
-        listaDeAlumnosInscriptos.remove(unAlumno);
+        for (Alumno listaDeAlumnosInscripto : listaDeAlumnosInscriptos) {
+
+            //if() { listaDeAlumnosInscriptos.remove(unAlumno);}
+
+
+        }
+
+
     }
 
 
+    }
 
-
-}

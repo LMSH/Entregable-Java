@@ -20,11 +20,13 @@ public class DigitalHouseManager {
     // 1) Crear un método en la clase DigitalHouseManager que permita dar de alta un curso. El método
     //recibe como parámetros el nombre del curso, el código y el cupo máximo de alumnos que se
     //admite. El método debe crear un curso con los datos correspondientes y agregarlo a la lista de
-    //cursos.   
+    //cursos.
 
     public void altaCurso(String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
         listaDeCursos.add(new Curso(nombre,codigoCurso,cupoMaximoDealumnos));
     }
+
+
 
     // 2) Crear un método en la clase DigitalHouseManager que permita dar de baja un curso. El método
     //recibe como parámetro el código del curso. El método debe utilizar el código del curso para
@@ -118,6 +120,11 @@ public class DigitalHouseManager {
 
 
     }
+
+
+
+
+
 
 }
 
