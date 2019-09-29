@@ -22,10 +22,12 @@ public class DigitalHouseManager {
     public List<Inscripcion> getListaDeInscriptos(){
         return listaDeInscriptos;
     }
+    public List<Curso> getListaDeCursos() { return listaDeCursos;}
 
     //Método setter.
     public void setListaDeCursos(List<Curso> listaDeCursos) {
         this.listaDeCursos = listaDeCursos;
+        this.listaDeProfesores = listaDeProfesores;
     }
 
 
@@ -45,7 +47,9 @@ public class DigitalHouseManager {
     //recibe como parámetro el código del curso. El método debe utilizar el código del curso para
     //buscarlo en la lista de cursos y eliminarlo de la lista.
 
+
     public void bajaCurso(Integer codigoCurso) {
+
 
 
 
@@ -59,9 +63,7 @@ public class DigitalHouseManager {
     //profesores.
 
     public void altaProfesorAdjunto(String nombre, String apellido, Integer codigoProfesor, Integer cantidadDeHoras){
-
-
-
+        //listaDeProfesores.add(nombre, apellido, codigoProfesor, cantidadDeHoras);
 
     }
 

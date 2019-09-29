@@ -89,14 +89,11 @@ public class Curso {
     // Crear un método en la clase Curso que permita eliminar un alumno de la lista de alumnos del curso.
 
     public void eliminarAlumno (Alumno unAlumno){
-        for (Alumno listaDeAlumnosInscripto : listaDeAlumnosInscriptos) {
-            if (!unAlumno.equals(unAlumno)) {
-                listaDeAlumnosInscriptos.remove(unAlumno);
-                System.out.println(unAlumno + "Fue Eliminado de la Lista");
 
-
+            if (listaDeAlumnosInscriptos.remove(unAlumno)) {
+                System.out.println("El Alumno: " + unAlumno + " fue eliminado de la lista");
+            } else {
+                System.out.println("El Alumno: " + unAlumno + "no se encuentra registrado");
             }
-        }
-
 
     }}

@@ -14,12 +14,18 @@ public class Main {
         c1.mostraralumnosinscriptos();
 
         //Metodo 2.
-        c1.eliminarAlumno(a1);
+        c1.eliminarAlumno(a3);
+        c1.eliminarAlumno(a2);
         c1.mostraralumnosinscriptos();
 
         // Metodo 3.
         Curso curso1 = new Curso ("Java",1234,3);
-        System.out.println(curso1);
+
+
+        //Método 4.
+
+
+
 
 
 
