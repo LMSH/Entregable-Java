@@ -1,5 +1,6 @@
 import com.sun.xml.internal.bind.v2.TODO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DigitalHouseManager {
@@ -9,12 +10,23 @@ public class DigitalHouseManager {
     private List<Curso> listaDeCursos;
     private List<Inscripcion> listaDeInscriptos;
 
+    public DigitalHouseManager(){
+        listaDeCursos = new ArrayList<>();
+        listaDeProfesores = new ArrayList<>();
+        listaDeAlumnos = new ArrayList<>();
+        listaDeInscriptos = new ArrayList<>();
+    }
+
+
     //Método getter.
     public List<Inscripcion> getListaDeInscriptos(){
         return listaDeInscriptos;
     }
 
-
+    //Método setter.
+    public void setListaDeCursos(List<Curso> listaDeCursos) {
+        this.listaDeCursos = listaDeCursos;
+    }
 
 
     // 1) Crear un método en la clase DigitalHouseManager que permita dar de alta un curso. El método
@@ -24,6 +36,7 @@ public class DigitalHouseManager {
 
     public void altaCurso(String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
         listaDeCursos.add(new Curso(nombre,codigoCurso,cupoMaximoDealumnos));
+        System.out.println(getListaDeInscriptos());
     }
 
 
