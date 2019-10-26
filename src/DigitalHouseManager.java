@@ -3,18 +3,21 @@ import com.sun.xml.internal.bind.v2.TODO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DigitalHouseManager {
+public abstract class  DigitalHouseManager  {
 
     private List<Alumno> listaDeAlumnos;
     private List<Profesor> listaDeProfesores;
     private List<Curso> listaDeCursos;
     private List<Inscripcion> listaDeInscriptos;
+    private Curso Curso;
+
 
     public DigitalHouseManager(){
         listaDeCursos = new ArrayList<>();
         listaDeProfesores = new ArrayList<>();
         listaDeAlumnos = new ArrayList<>();
         listaDeInscriptos = new ArrayList<>();
+        this.Curso = Curso;
     }
 
 
@@ -24,10 +27,17 @@ public class DigitalHouseManager {
     }
     public List<Curso> getListaDeCursos() { return listaDeCursos;}
 
+    public Curso getUnCurso() {
+        return Curso;
+    }
+
     //Método setter.
     public void setListaDeCursos(List<Curso> listaDeCursos) {
         this.listaDeCursos = listaDeCursos;
         this.listaDeProfesores = listaDeProfesores;
+    }
+    public void setUnCurso(Curso unCurso) {
+        this.Curso = unCurso;
     }
 
 
@@ -36,9 +46,10 @@ public class DigitalHouseManager {
     //admite. El método debe crear un curso con los datos correspondientes y agregarlo a la lista de
     //cursos.
 
-    public void altaCurso(String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
-        listaDeCursos.add(new Curso(nombre,codigoCurso,cupoMaximoDealumnos));
-        System.out.println(getListaDeInscriptos());
+    public void altaCurso (String nombre, Integer codigoCurso, Integer cupoMaximoDealumnos){
+        Curso Curso = new Curso(nombre,codigoCurso,cupoMaximoDealumnos);
+        listaDeCursos.add(Curso);
+        System.out.println(getListaDeCursos());
     }
 
 
@@ -49,12 +60,14 @@ public class DigitalHouseManager {
 
 
     public void bajaCurso(Integer codigoCurso) {
-
-
-
-
-
+        for (Curso curso:listaDeCursos){
+                Curso cursoAEliminar = null;
+            if(curso.getCodigoDelCurso().equals(codigoCurso)){
+                cursoAEliminar = curso;
+                System.out.println(getListaDeCursos());
+            }
         }
+    }
 
     // 3) Crear un método en la clase DigitalHouseManager que permita dar de alta a un profesor
     //adjunto. El método recibe como parámetros el nombre del profesor, el apellido, el código y la
@@ -62,21 +75,24 @@ public class DigitalHouseManager {
     //método debe crear un profesor adjunto con los datos correspondientes y agregarlo a la lista de
     //profesores.
 
-    public void altaProfesorAdjunto(String nombre, String apellido, Integer codigoProfesor, Integer cantidadDeHoras){
-        //listaDeProfesores.add(nombre, apellido, codigoProfesor, cantidadDeHoras);
+    public void altaProfesorAdjunto(String nombreDelProfesor, String apellidoDelProfesor, Integer antiguedad, Integer codigoDeProfesor,Integer cantidadDeHoras){
 
-    }
+        ProfesorAdjunto nuevoProfesorAdjunto = new ProfesorAdjunto(nombreDelProfesor, apellidoDelProfesor, antiguedad, codigoDeProfesor, cantidadDeHoras);
+        listaDeProfesores.add(nuevoProfesorAdjunto);
+        System.out.println("El Profesor Adjunto: " + nombreDelProfesor + " " + apellidoDelProfesor + "fue dado de alta.");
+            }
 
     // 4) Crear un método en la clase DigitalHouseManager que permita dar de alta a un profesor titular.
     //El método recibe como parámetros el nombre del profesor, el apellido, el código y la
     //especialidad. La antigüedad inicial del profesor será cero. El método debe crear un profesor
     //titular con los datos correspondientes y agregarlo a la lista de profesores.
 
-    public void altaProfesorTitular(String nombre, String apellido, Integer codigoProfesor, String especialidad){
+    public void altaProfesorTitular(String nombreDelProfesor, String apellidoDelProfesor,Integer antiguedad, Integer codigoDeProfesor, String especialidad){
 
+        ProfesorTitular nuevoProfesorTitular = new ProfesorTitular(nombreDelProfesor,apellidoDelProfesor,antiguedad, codigoDeProfesor,especialidad);
 
-
-
+        listaDeProfesores.add(nuevoProfesorTitular);
+        System.out.println("El Profesor Titular: " + nombreDelProfesor + " " + apellidoDelProfesor + "fue dado de alta.");
     }
 
 
@@ -86,10 +102,14 @@ public class DigitalHouseManager {
 
     public void bajaProfesor(Integer codigoProfesor){
 
+         /* for (Profesor profesorAEliminar: listaDeProfesores) {
+            if (codigoProfesor.equals(codigoProfesor)) {
+                listaDeProfesores.remove(codigoProfesor);*/
+
+            }
 
 
 
-    }
 
     // 6) Crear un método en la clase DigitalHouseManager que permita dar de alta a un alumno. El
     //método recibe como parámetros el nombre, el apellido y el código del alumno. El método debe
@@ -97,9 +117,10 @@ public class DigitalHouseManager {
 
     public void altaAlumno(String nombre, String apellido, Integer codigoAlumno){
 
-
-
-
+    Alumno nuevoAlumno = new Alumno(nombre,apellido,codigoAlumno);
+    listaDeAlumnos.add(nuevoAlumno);
+        System.out.println("El Alumno: " + nombre + " " + apellido + "Fue dado de Alta.");
+        System.out.println(listaDeAlumnos);
     }
 
     // 7) Crear un método en la clase DigitalHouseManager que permita inscribir un alumno a un curso.
@@ -115,6 +136,8 @@ public class DigitalHouseManager {
     //○ Informar por pantalla que no se pudo inscribir porque no hay cupo
 
     public void inscribirAlumno(Integer codigoAlumno, Integer codigoCurso){
+
+
 
 
 

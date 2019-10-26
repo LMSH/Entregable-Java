@@ -9,6 +9,7 @@ public class ProfesorAdjunto extends Profesor {
     }
 
 
+
     // Método Getter.
     public Integer getCantidadDeHoras (){
     return cantidadDeHoras;
@@ -18,6 +19,9 @@ public class ProfesorAdjunto extends Profesor {
     public Integer setCantidadDeHoras(){
         return cantidadDeHoras;
     }
+
+
+
 
 
 

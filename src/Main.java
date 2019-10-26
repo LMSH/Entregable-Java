@@ -1,29 +1,46 @@
 public class Main {
     public static void main(String[] args) {
 
+        // TEST MÉTODOS DE LA CLASE CURSO.
         //Metodo 1
-        Curso c1 = new Curso("Java",123,1);;
+        Curso Android = new Curso("Android",123,3);
+        Curso FullStack = new Curso("Full Stack", 20002,2);
         Alumno a1 = new Alumno( "Juan", "Gomez",1235);
-        Alumno a2 = new Alumno("Ramon","Perez",123);
-        Alumno a3 = new Alumno("Hector","Velez",124);
+        Alumno a2 = new Alumno( "Hector", "Ramirez",1235);
+        Alumno a3 = new Alumno("Ramon","Perez",123);
 
-        c1.agregarUnAlumno(a1);
-        c1.agregarUnAlumno(a2);
-        c1.agregarUnAlumno(a3);
 
-        c1.mostraralumnosinscriptos();
+
+        Android.agregarUnAlumno(a1);
+        Android.agregarUnAlumno(a2);
+        Android.agregarUnAlumno(a3);
+        FullStack.agregarUnAlumno(a1);
+        FullStack.agregarUnAlumno(a2);
+
+
+        Android.mostraralumnosinscriptos();
 
         //Metodo 2.
-        c1.eliminarAlumno(a3);
-        c1.eliminarAlumno(a2);
-        c1.mostraralumnosinscriptos();
-
-        // Metodo 3.
-        Curso curso1 = new Curso ("Java",1234,3);
+        Android.eliminarAlumno(a1);
+        Android.eliminarAlumno(a2);
+        Android.mostraralumnosinscriptos();
+        FullStack.mostraralumnosinscriptos();
 
 
-        //Método 4.
 
+        // TEST MÉTODOS DE LA CLASE DIGITAL HOUSE MANAGER.
+
+        // Metodo 1.
+
+
+        // Método 2.
+
+        // Método 3.
+
+
+
+        // Métodp 4.
+        ProfesorTitular pT = new ProfesorTitular("Juan","Gomez",4,555,"Android");
 
 
 

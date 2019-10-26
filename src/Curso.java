@@ -1,9 +1,5 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.DoubleToIntFunction;
 
 public class Curso {
     private String nombreDelCurso;
@@ -12,6 +8,7 @@ public class Curso {
     private ProfesorAdjunto profesorAdjunto;
     private Integer cupoMaximoDeAlumnos;
     private List<Alumno> listaDeAlumnosInscriptos;
+    private List<Alumno> listaDeAlumnosEliminados;
 
     // Método Constructor.
     public Curso(String nombreDelCurso, Integer codigoDelCurso, Integer cupoMaximoDeAlumnos) {
@@ -19,7 +16,9 @@ public class Curso {
         this.codigoDelCurso = codigoDelCurso;
         this.cupoMaximoDeAlumnos = cupoMaximoDeAlumnos;
         listaDeAlumnosInscriptos = new ArrayList<>();
+        listaDeAlumnosEliminados = new ArrayList<>();
     }
+
 
     // Métodos Getter.
     public String getNombreDelCurso() {
@@ -72,28 +71,47 @@ public class Curso {
 
     // Crear un método que permita agregar un Alumno a la Lista.
     public Boolean agregarUnAlumno(Alumno unAlumno) {
-        if (listaDeAlumnosInscriptos.size() <= cupoMaximoDeAlumnos) {
+
+        if (listaDeAlumnosInscriptos.size() < cupoMaximoDeAlumnos) {
+
             listaDeAlumnosInscriptos.add(unAlumno);
-            System.out.println("Cupo Disponible, " + unAlumno + " fue inscripto al curso");
+            System.out.println(unAlumno + ": Hay cupo disponible para este curso, su inscripción fue realizada con exito.");
             return true;
         } else {
-            System.out.println("No hay Cupo Disponible, " + unAlumno + " El Curso esta Completo, su inscrión no fue realizada");
+            System.out.println(unAlumno + ": El Curso esta Completo. Su inscripción no fue realizada.");
             return false;
+
         }
     }
 
     public void mostraralumnosinscriptos() {
-        System.out.println(getListaDeAlumnosInscriptos());}
+        System.out.println("Lista de alumnos inscriptos: " + getListaDeAlumnosInscriptos());
+    }
 
 
     // Crear un método en la clase Curso que permita eliminar un alumno de la lista de alumnos del curso.
 
-    public void eliminarAlumno (Alumno unAlumno){
+    public void eliminarAlumno(Alumno unAlumno) {
 
-            if (listaDeAlumnosInscriptos.remove(unAlumno)) {
-                System.out.println("El Alumno: " + unAlumno + " fue eliminado de la lista");
-            } else {
-                System.out.println("El Alumno: " + unAlumno + "no se encuentra registrado");
-            }
+        if (listaDeAlumnosInscriptos.remove(unAlumno)) {
+            System.out.println("El Alumno: " + unAlumno.toString() + " fue eliminado de la lista");
+            listaDeAlumnosEliminados.add(unAlumno);
+            System.out.println("Lista de alumnos eliminados: " + listaDeAlumnosEliminados);
 
-    }}
+        } else {
+            System.out.println("El Alumno: " + unAlumno + "no se encuentra registrado");
+        }
+
+
+
+
+
+
+    }
+
+
+}
+
+
+
+
